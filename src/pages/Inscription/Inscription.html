@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Inscription
+      </ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only 
+        (click)="addDocument()" >
+        <ion-icon name="ios-person-add"></ion-icon>
+     </button>
+    </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    
+  <h2>Membres</h2>
+  
+     <ion-list>
+           <ion-item *ngFor="let location of locations">
+                <h2>{{ location.Nom }} {{ location.Prenom }}</h2>
+                
+                <p>
+                        Nom: {{ location.Nom }}<br>
+                        Prenom: {{ location.Prenom }}<br>
+                        Classe: {{ location.Classe }}<br>
+                        Faculte: {{ location.Faculte }}<br>
+                        Departement : {{ location.Departement }}
+                </p>
+  
+  
+       <!--         <button
+              ion-button
+              color="secondary"
+              (click)="updateDocument(location)">
+                 Update this record
+           </button>
+  
+  
+                <button
+              ion-button
+              color="danger"
+              (click)="deleteDocument(location)">
+                 Delete this record
+           </button>
+  
+        -->
+           </ion-item>
+     </ion-list>
+  
+  </ion-content>

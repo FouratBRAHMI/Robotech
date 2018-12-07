@@ -1,0 +1,7 @@
+{
+  "name": "rebotique",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

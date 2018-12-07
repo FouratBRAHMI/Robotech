@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar>
+     <ion-title>
+        {{ title }}
+     </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <form
+     [formGroup]="form"
+     (ngSubmit)="saveDocument(form.value)">
+
+      <ion-item>
+        <ion-label stacked>NCIN:</ion-label>
+        <ion-input
+           type="text"
+           formControlName="NCIN"
+           [(ngModel)]="NCIN"></ion-input>
+      </ion-item>
+
+
+     <ion-item>
+        <ion-label stacked>Classe:</ion-label>
+        <ion-input
+           type="text"
+           formControlName="Classe"
+           [(ngModel)]="Classe"></ion-input>
+      </ion-item>
+
+
+     <ion-item>
+        <ion-label stacked>Nom:</ion-label>
+        <ion-input
+           type="text"
+           formControlName="Nom"
+           [(ngModel)]="Nom"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Prenom:</ion-label>
+        <ion-input
+           type="text"
+           formControlName="Prenom"
+           [(ngModel)]="Prenom"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Faculte:</ion-label>
+        <ion-input
+           type="text"
+           formControlName="Faculte"
+           [(ngModel)]="Faculte"></ion-input>
+      </ion-item>
+
+      
+      <ion-item>
+        <ion-label stacked>Departement:</ion-label>
+        <ion-input
+           type="text"
+           formControlName="Departement"
+           [(ngModel)]="Departement"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button
+          ion-button
+          block
+          color="primary"
+          (click)="goToInscription()"
+          text-center
+          padding-top
+          padding-bottom
+          [disabled]="!form.valid">
+           <div *ngIf="!isEditable">
+              Add 
+           </div>
+
+           <div *ngIf="isEditable">
+              Update
+           </div>
+           </button>
+      </ion-item>
+
+  </form>
+
+
+</ion-content>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Bootstrap 2 Ionic</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+
+  <link rel="stylesheet" href="/static/normalize.css">
+  <link rel="stylesheet" href="/static/skeleton.css">
+  <link rel="stylesheet" href="/static/style.css">
+
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="../../dist/images/favicon.png">
+
+</head>
+<body>
+
+  <a href="https://github.com/driftyco/ionic-bootstrap-theme-generator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+  <div id="main">
+    <h1>Bootstrap to Ionic</h1>
+    <p>
+      Bootstrap to Ionic takes a standard Bootstrap 3 theme and generates an <a href="http://ionicframework.com/">Ionic</a>
+      theme (1.x/2.x) to match. Works on most themes, unless you've really butchered your bootstrap CSS (naughty programmer!)
+    </p>
+    <form id="formaggio">
+      <div class="fg">
+        Stylesheet URL: <input type="text" class="u-full-width" id="the-url" placeholder="Bootstrap CSS URL">
+      </div>
+      <div class="fg">
+        Ionic version:
+          <input type="radio" name="v" value="1"> 1.x
+          <input type="radio" name="v" value="2" checked> 2.x
+      </div>
+      <div class="fg">
+        <button type="submit" class="button">Generate</button>
+      </div>
+      <div id="error">
+        Unable to generate theme, perhaps your CSS is wonky?
+      </div>
+    </form>
+    <div id="output">
+      <p id="help-2">
+        Add or replace your <code>app/theme/app.variables.css</code> with the below SCSS:
+      </p>
+      <p id="help-1">
+        Add the SCSS below to your <code>scss/ionic.app.scss</code> file. Make sure to <a href="http://ionicframework.com/docs/cli/sass.html">enable Sass</a> first.
+      </p>
+      <div id="output-text">
+        <pre><code class="scss"></code></pre>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function() {
+      $('#formaggio').submit(function() {
+        $('#error').hide();
+        $('#output').hide();
+        $('#help-1').hide();
+        $('#help-2').hide();
+        var u = $('#the-url').val();
+        var v = $('[name="v"]:checked').val();
+        console.log('Sending', u, v);
+        $.ajax('/api/v1/parse-bootstrap-url', {
+          type: 'POST',
+          processData: false,
+          contentType: 'application/json',
+          data: JSON.stringify({
+            url: u,
+            v: v
+          }),
+          dataType: 'json',
+          success: function(resp) {
+            $('#error').hide();
+          },
+          error: function(err) {
+            console.error('Unable to generate', err);
+            $('#error').show();
+          },
+        }).done(function(data) {
+          $('#help-' + data.v).show();
+          $('#output').show();
+          $('#output-text code').text(data.theme);
+          $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+        return false;
+      })
+    })
+  </script>
+</body>
+</html>

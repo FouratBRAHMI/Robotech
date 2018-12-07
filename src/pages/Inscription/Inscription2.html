@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Inscription
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Nom</ion-label>
+      <ion-input type="text" value=""></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label fixed>Prenom</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>NCIN</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Classe</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Faculte</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label fixed>Departement</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-item>
+      <ion-label>j'accepte les lois du club</ion-label>
+      <ion-checkbox color="dark" checked="false" ></ion-checkbox>
+    </ion-item>
+
+  <button ion-button on-click="register()" >
+      <ion-icon name="home">
+      S'inscrit </ion-icon>
+    </button>
+</ion-content>
