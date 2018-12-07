@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { IntegrationPage } from '../integration/Integration';
 
 @Component({
   selector: 'page-home',
@@ -11,4 +12,7 @@ export class HomePage {
 
   }
 
+  gotointegration(){
+    this.navCtrl.push(IntegrationPage);
+  }
 }

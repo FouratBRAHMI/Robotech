@@ -17,6 +17,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { firebaseConfig } from './credentials';
 import { DatabaseProvider } from '../providers/database/database';
+import { IntegrationPage } from '../pages/integration/Integration';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DatabaseProvider } from '../providers/database/database';
     AboutPage,
     InscriptionPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    IntegrationPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { DatabaseProvider } from '../providers/database/database';
     AboutPage,
     InscriptionPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    IntegrationPage
   ],
   providers: [
     StatusBar,
