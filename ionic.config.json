@@ -1,7 +1,5 @@
 {
-  "name": "rebotique",
-  "integrations": {
-    "cordova": {}
-  },
+  "name": "douks",
+  "integrations": {},
   "type": "ionic-angular"
 }

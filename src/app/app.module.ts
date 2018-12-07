@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+
 import { AboutPage } from '../pages/about/about';
 import { InscriptionPage } from '../pages/Inscription/Inscription';
 import { HomePage } from '../pages/home/home';
