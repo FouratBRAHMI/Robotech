@@ -10,5 +10,7 @@ export class AboutPage {
   constructor(public navCtrl: NavController) {
 
   }
-
+  AddArticle(): void{
+    this.navCtrl.push('manage-article');
+  }
 }

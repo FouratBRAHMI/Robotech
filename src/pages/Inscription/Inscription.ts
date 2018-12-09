@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { DatabaseProvider } from '../../providers/database/database';
 
+
 @Component({
   selector: 'page-Inscription',
   templateUrl: 'Inscription.html'
@@ -16,6 +17,7 @@ export class InscriptionPage {
 
    public locations     : any;
 
+   
    constructor(public navCtrl  : NavController,
                private _DB     : DatabaseProvider,
                private _ALERT  : AlertController)

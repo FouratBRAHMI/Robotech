@@ -118,6 +118,60 @@ export class DatabaseProvider {
 
 
 
+
+
+   
+   /**
+    * Return Articles from specific database collection
+    *
+    * @public
+    * @method getArticle
+    * @param  collectionObj    {String}           The database collection we want to retrieve records from
+    * @return {Promise}
+    */
+   getArticles(collectionObj : string) : Promise<any>
+   {
+      return new Promise((resolve, reject) =>
+      {
+         this._DB.collection(collectionObj)
+         .get()
+         .then((querySnapshot) =>
+         {
+
+            // Declare an array which we'll use to store retrieved documents
+            let obj : any = [];
+
+
+            // Iterate through each document, retrieve the values for each field
+            // and then assign these to a key in an object that is pushed into the
+            // obj array
+            querySnapshot
+            .forEach((doc : any) =>
+            {
+                obj.push({
+                   id             : doc.id,
+                   Titre           : doc.data().Titre,
+                   Desc     : doc.data().Desc,
+                   Photo    : doc.data().Photo,
+                   
+                });
+            });
+
+
+            // Resolve the completed array that contains all of the formatted data
+            // from the retrieved documents
+            resolve(obj);
+         })
+         .catch((error : any) =>
+         {
+            reject(error);
+         });
+      });
+   }
+
+
+
+
    /**
     * Add a new document to a selected database collection
     *

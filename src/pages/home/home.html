@@ -35,4 +35,37 @@
           </ion-card-content>
   
         </ion-card>
+
+
+        <ion-list>
+          <ion-item *ngFor="let location of locations">
+               <h2>{{ location.Titre }} {{ location.Titre }}</h2>
+               
+               <p>
+                     
+                       Titre: {{ location.Titre }}<br>
+                       Desc: {{ location.Desc }}<br>
+                       Photo: {{ location.Photo }}
+                       
+               </p>
+ 
+ 
+      <!--         <button
+             ion-button
+             color="secondary"
+             (click)="updateDocument(location)">
+                Update this record
+          </button>
+ 
+ 
+               <button
+             ion-button
+             color="danger"
+             (click)="deleteDocument(location)">
+                Delete this record
+          </button>
+ 
+       -->
+          </ion-item>
+    </ion-list>
 </ion-content>

@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+     <ion-title>
+        {{ title }}
+     </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <form
+     [formGroup]="form"
+     (ngSubmit)="saveDocument(form.value)">
+
+      <ion-item>
+        <ion-label stacked>Titre:</ion-label>
+        <ion-input
+           type="text"
+           formControlName="Titre"
+           [(ngModel)]="Titre"></ion-input>
+      </ion-item>
+
+
+     <ion-item>
+        <ion-label stacked>Desc:</ion-label>
+        <ion-input
+           type="text"
+           formControlName="Desc"
+           [(ngModel)]="Desc"></ion-input>
+      </ion-item>
+     
+      <ion-item>
+         <ion-label stacked>Photo:</ion-label>
+         <ion-input
+            type="text"
+            formControlName="Photo"
+            [(ngModel)]="Photo"></ion-input>
+       </ion-item>
+      
+      <ion-item>
+        <button
+          ion-button
+          block
+          color="primary"
+          (click)="goToHome()"
+          text-center
+          padding-top
+          padding-bottom
+          [disabled]="!form.valid">
+           <div *ngIf="!isEditable">
+              Add 
+           </div>
+
+           <div *ngIf="isEditable">
+              Update
+           </div>
+           </button>
+      </ion-item>
+
+  </form>
+
+
+</ion-content>

@@ -21,6 +21,7 @@ import { DatabaseProvider } from '../providers/database/database';
 import { IntegrationPage } from '../pages/integration/Integration';
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +29,8 @@ import { IntegrationPage } from '../pages/integration/Integration';
     InscriptionPage,
     HomePage,
     TabsPage,
-    IntegrationPage
+    IntegrationPage,
+  
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { IntegrationPage } from '../pages/integration/Integration';
     InscriptionPage,
     HomePage,
     TabsPage,
-    IntegrationPage
+    IntegrationPage,
+    
   ],
   providers: [
     StatusBar,
