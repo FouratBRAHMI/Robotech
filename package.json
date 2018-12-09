@@ -1,5 +1,5 @@
 {
-  "name": "douks",
+  "name": "Robotech",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -26,7 +26,6 @@
     "@ionic/storage": "2.2.0",
     "angularfire2": "^5.1.1",
     "firebase": "^5.7.0",
-    "firebase-config": "0.0.2",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "promise-polyfill": "^8.1.0",
