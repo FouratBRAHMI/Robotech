@@ -22,6 +22,8 @@
           </p>
         </ion-card-content>
 
+
+
       </ion-card>
       <ion-card (click)="gotointegration()" >
           <img src="https://firebasestorage.googleapis.com/v0/b/robotech-df98d.appspot.com/o/robo.jpg?alt=media&token=f19adaf3-449e-460d-92cf-732e6b3ef207"/>
@@ -37,19 +39,20 @@
         </ion-card>
 
 
-        <ion-list>
-          <ion-item *ngFor="let location of locations">
-               <h2>{{ location.Titre }} {{ location.Titre }}</h2>
-               
-               <p>
-                     
-                       Titre: {{ location.Titre }}<br>
-                       Desc: {{ location.Desc }}<br>
-                       Photo: {{ location.Photo }}
-                       
+
+      
+       
+          <ion-card *ngFor="let location of locations">
+              <!-- <h2>{{ location.Titre }} {{ location.Titre }}</h2>-->
+              <img src= "{{ location.Photo }}"/>
+              <ion-card-content>
+                  
+               <ion-card-title>
+                       {{ location.Titre }}<br>
+                      </ion-card-title>
+                       <p>
+                       Desc: {{ location.Desc }}<br>      
                </p>
- 
- 
       <!--         <button
              ion-button
              color="secondary"
@@ -66,6 +69,7 @@
           </button>
  
        -->
-          </ion-item>
-    </ion-list>
+      </ion-card-content>
+          </ion-card>
+      
 </ion-content>
